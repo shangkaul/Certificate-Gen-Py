@@ -3,11 +3,17 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.style import WD_STYLE_TYPE
 from docx.shared import Pt
 from docx.enum.text import WD_LINE_SPACING
-from docx2pdf import convert
 import PyPDF2
-
+import sys
 import csv
 import os.path
+
+import sys
+import subprocess
+import re
+import time
+
+
 
 
 def createDoc(intern):
@@ -36,37 +42,44 @@ def createDoc(intern):
 
 
     content=[]
-    name=intern[2]
-    dept=intern[4]
-    gender=intern[5]
-    if gender=="male" or "Male":
-        s="m"
-    elif gender=="female" or "Female":
-        s="f"
+    name=""
+    for word in intern[1].split():
+        name+=word.capitalize()
+
+    dept=intern[3]
+    gender=intern[2]
+    if gender=="M":
+        s='m'
+    elif gender=="F":
+        s='f'
     
-    he={"m":"he","f":"she"}
-    his={"m":"his","f":"her"}
-    him={"m":"him","f":"her"}
+    he={'m':"he",'f':"she"}
+    his={'m':"his",'f':"her"}
+    him={'m':"him",'f':"her"}
     if dept=="GD":
         designation="Graphic Designer"
     elif dept=="HR":
-        designation="HR Intern"
+        designation="Human Resource Intern"
     elif dept=="Marketing":
-        designation="Digital Marketeer"
+        designation="Marketing and Research Intern"
+    elif dept=="CW":
+        designation="Content Writer"
 
-    start=intern[6]
-    end=intern[7]
+    start=intern[4]
+    end=intern[5]
 
 
-    para1="This is to certify that "+name+" has done "+his[s]+" internship as a "+designation+"   at Inception Wave Pvt. Ltd, from "+start+" to "+end
+    para1="This is to certify that "+name+" has done "+his[s]+" internship as a "+designation+" at Inception Wave Pvt. Ltd, from "+start+" to "+end+"."
     if dept=="Marketing":
-        para2="During the internship, "+he[s]+" has closely worked as a part of the Operations team for our product : Grapido, "+he[s]+" made a valuable contribution towards the publicity and digital marketing  ventures of Inception Wave Pvt. Ltd.."
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Operations team for our product : Grapido, "+he[s]+" made a valuable contribution towards the market research and digital marketing  ventures of Inception Wave Pvt. Ltd.."
     elif dept=="GD":
         para2="During the internship, "+he[s]+" has closely worked as a part of the Design and marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the publicity and digital marketing  ventures of Inception Wave Pvt. Ltd.."
     elif dept=="HR":
         para2="During the internship, "+he[s]+" has closely worked as a part of the Human Resource team for our product : Grapido, "+he[s]+" made a valuable contribution towards the overall team management of different domains of Inception Wave Pvt. Ltd.."
-        
-    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. During the internship, "+he[s]+" demonstrated good communication and designing skills with a self-motivated attitude to learn new things.Further, "+his[s]+" performance exceeded the expectations and was able to complete the assigned tasks successfully on time. "
+    elif dept=="CW":
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Digital Marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the content curation for different campaigns of Inception Wave Pvt. Ltd.."
+
+    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. During the internship, "+he[s]+" demonstrated good communication skills  with a self-motivated attitude to learn new things.Further, "+his[s]+" performance exceeded the expectations and "+he[s]+" was able to complete the assigned tasks successfully on time. "
     para4="We wish "+him[s]+" all the best for "+his[s]+" future endeavours."
 
     content.append(para1)
@@ -80,25 +93,61 @@ def createDoc(intern):
         para.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
 
         para.styles=document.styles['Normal']
-
-    empty=document.add_paragraph(' ')
-    empty=document.add_paragraph(' ')
-
-
-
-    stamp=document.add_picture('stamp.png')
+    
+    empty=document.add_paragraph('Regards,')
+    
+    stamp=document.add_picture('stamp.png',width=Pt(200))
     last_paragraph = document.paragraphs[-1] 
-    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     
     count=0
     while os.path.isfile("Response/"+name+".docx"):
-        count+=1
-        name=name+str(count)
+        count=count+1
+        name=name+"copy "
     filename="Response/"+name+".docx"
     document.save(filename)
 
+def convertPDFwindows():
+    wdFormatPDF = 17
+    infolder="Response"
+    out_folder ="Response_PDF/"
+    for in_file_name in os.listdir(infolder):
+	    print(in_file_name)
+	    in_file=infolder+in_file_name
+	    word = comtypes.client.CreateObject('Word.Application')
+	    doc = word.Documents.Open(in_file)
+	    # print("\n"+in_file+" opened")
+	
+	    outfile_name=in_file_name.replace("docx","pdf")
+	    out_file =out_folder+outfile_name
+	    doc.SaveAs(out_file, FileFormat=wdFormatPDF)
+	    doc.Close()
+	    word.Quit()
+	    print("successfully converted"+outfile_name)
+
+
+def convert_to(folder, source, timeout=None):
+    args = [libreoffice_exec(), '--headless', '--convert-to', 'pdf', '--outdir', folder, source]
+
+    process = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
+    filename = re.search('-> (.*?) using filter', process.stdout.decode())
+
+    return filename.group(1)
+
+
+def libreoffice_exec():
+    # TODO: Provide support for more platforms
+    if sys.platform == 'darwin':
+        return '/Applications/LibreOffice.app/Contents/MacOS/soffice'
+    return 'libreoffice'
+
 def convertPDF():
-    convert("Response/")
+    directory = os.fsencode("Response/")
+    for file in os.listdir(directory):
+     filename = os.fsdecode(file)
+     if filename.endswith(".docx"): 
+         result = convert_to('Response_PDF/', os.path.join("Response", filename))
+
 
 def rdCSV():
     with open('Intern_Response.csv', newline='') as f:
@@ -110,7 +159,7 @@ def rdCSV():
 def convert(filename):
     watermark="Response_PDF/"+filename
     pdf_file="watermark.pdf"
-    merged_file = "Response_PDF/"+filename+".pdf"
+    merged_file = "Final_certi/"+filename
     input_file = open(pdf_file,'rb')
     input_pdf = PyPDF2.PdfFileReader(input_file)
     watermark_file = open(watermark,'rb')
@@ -136,12 +185,25 @@ def watermark():
          convert(filename)
          
 
-
 def main():
     rdCSV()
-    # convertPDF()
-    # watermark()
+    convertPDF()
+    watermark()
+    directory = os.fsencode("Response/")
+    for file in os.listdir(directory):
+        filename = os.fsdecode(file)
+        os.remove(os.path.join("Response", filename))
+    directory = os.fsencode("Response_PDF/")
+    for file in os.listdir(directory):
+        filename = os.fsdecode(file)
+        os.remove(os.path.join("Response_PDF", filename))
+
+    
 
 
 if __name__=="__main__":
     main()
+
+
+
+
