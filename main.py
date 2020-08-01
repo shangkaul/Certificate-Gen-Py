@@ -45,6 +45,7 @@ def createDoc(intern):
     name=""
     for word in intern[1].split():
         name+=word.capitalize()
+        name=name+" "
 
     dept=intern[3]
     gender=intern[2]
@@ -71,15 +72,15 @@ def createDoc(intern):
 
     para1="This is to certify that "+name+" has done "+his[s]+" internship as a "+designation+" at Inception Wave Pvt. Ltd, from "+start+" to "+end+"."
     if dept=="Marketing":
-        para2="During the internship, "+he[s]+" has closely worked as a part of the Operations team for our product : Grapido, "+he[s]+" made a valuable contribution towards the market research and digital marketing  ventures of Inception Wave Pvt. Ltd.."
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Operations team for our product : Grapido, "+he[s]+" made a valuable contribution towards the market research and digital marketing  ventures of Inception Wave Pvt. Ltd."
     elif dept=="GD":
-        para2="During the internship, "+he[s]+" has closely worked as a part of the Design and marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the publicity and digital marketing  ventures of Inception Wave Pvt. Ltd.."
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Design and marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the publicity and digital marketing  ventures of Inception Wave Pvt. Ltd."
     elif dept=="HR":
-        para2="During the internship, "+he[s]+" has closely worked as a part of the Human Resource team for our product : Grapido, "+he[s]+" made a valuable contribution towards the overall team management of different domains of Inception Wave Pvt. Ltd.."
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Human Resource team, "+he[s]+" made a valuable contribution towards the overall team management of different domains of Inception Wave Pvt. Ltd."
     elif dept=="CW":
-        para2="During the internship, "+he[s]+" has closely worked as a part of the Digital Marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the content curation for different campaigns of Inception Wave Pvt. Ltd.."
+        para2="During the internship, "+he[s]+" has closely worked as a part of the Digital Marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the content curation for different campaigns of Inception Wave Pvt. Ltd."
 
-    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. During the internship, "+he[s]+" demonstrated good communication skills  with a self-motivated attitude to learn new things.Further, "+his[s]+" performance exceeded the expectations and "+he[s]+" was able to complete the assigned tasks successfully on time. "
+    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. Throughout the internship, "+he[s]+" demonstrated good communication skills  with a self-motivated attitude to learn new things. Further, "+his[s]+" performance exceeded the expectations and "+he[s]+" was able to complete the assigned tasks successfully on time. "
     para4="We wish "+him[s]+" all the best for "+his[s]+" future endeavours."
 
     content.append(para1)
