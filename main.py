@@ -80,7 +80,7 @@ def createDoc(intern):
     elif dept=="CW":
         para2="During the internship, "+he[s]+" has closely worked as a part of the Digital Marketing team for our product : Grapido, "+he[s]+" made a valuable contribution towards the content curation for different campaigns of Inception Wave Pvt. Ltd."
 
-    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. Throughout the internship, "+he[s]+" demonstrated good communication skills  with a self-motivated attitude to learn new things. Further, "+his[s]+" performance exceeded the expectations and "+he[s]+" was able to complete the assigned tasks successfully on time. "
+    para3="Throughout the internship, "+his[s]+" efforts and dedication towards the task assigned was praiseworthy. Overall, "+he[s]+" demonstrated good communication skills  with a self-motivated attitude to learn new things. Further, "+his[s]+" performance exceeded the expectations and "+he[s]+" was able to complete the assigned tasks successfully on time. "
     para4="We wish "+him[s]+" all the best for "+his[s]+" future endeavours."
 
     content.append(para1)
