@@ -43,10 +43,12 @@ def createDoc(intern):
 
     content=[]
     name=""
-    for word in intern[1].split():
+    for word in re.split('\.|_|-|!| ',intern[1]):
         name+=word.capitalize()
+        if len(word)==1:
+            name=name+"."
         name=name+" "
-
+    name=name[:-1]
     dept=intern[3]
     gender=intern[2]
     if gender=="M":
@@ -57,6 +59,7 @@ def createDoc(intern):
     he={'m':"he",'f':"she"}
     his={'m':"his",'f':"her"}
     him={'m':"him",'f':"her"}
+    salut={'m':"Mr. ",'f':"Ms. "}
     if dept=="GD":
         designation="Graphic Designer"
     elif dept=="HR":
@@ -70,7 +73,7 @@ def createDoc(intern):
     end=intern[5]
 
 
-    para1="This is to certify that "+name+" has done "+his[s]+" internship as a "+designation+" at Inception Wave Pvt. Ltd, from "+start+" to "+end+"."
+    para1="This is to certify that "+salut[s]+name+" has done "+his[s]+" internship as a "+designation+" at Inception Wave Pvt. Ltd, from "+start+" to "+end+"."
     if dept=="Marketing":
         para2="During the internship, "+he[s]+" has closely worked as a part of the Operations team for our product : Grapido, "+he[s]+" made a valuable contribution towards the market research and digital marketing  ventures of Inception Wave Pvt. Ltd."
     elif dept=="GD":
@@ -204,7 +207,4 @@ def main():
 
 if __name__=="__main__":
     main()
-
-
-
 
