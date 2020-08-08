@@ -22,7 +22,7 @@ def main():
         message["Subject"] = "Internship Certificate | Certificate Of Internship"
         message["From"] = sender_email
         message["To"] = receiver_email
-        message["Bcc"] = receiver_email
+        message["Bcc"] = sender_email
 
         
         html = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
