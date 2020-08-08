@@ -105,11 +105,17 @@ def createDoc(intern):
     last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     
     count=0
+    dir="Response/"
     while os.path.isfile("Response/"+name+".docx"):
         count=count+1
         name=name+"copy "
-    filename="Response/"+name+".docx"
-    document.save(filename)
+    filename=name
+    document.save(dir+filename+".docx")
+    intern.append("Final_certi/"+filename+".pdf")
+
+    with open('mail.csv', mode='a') as mailfile:
+        writer = csv.writer(mailfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(intern)
 
 def convertPDFwindows():
     wdFormatPDF = 17
@@ -190,6 +196,8 @@ def watermark():
          
 
 def main():
+    file=open("mail.csv","w")
+    file.close()
     rdCSV()
     convertPDF()
     watermark()
@@ -207,4 +215,3 @@ def main():
 
 if __name__=="__main__":
     main()
-
