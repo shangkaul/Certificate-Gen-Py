@@ -111,7 +111,7 @@ def createDoc(intern):
         name=name+"copy "
     filename=name
     document.save(dir+filename+".docx")
-    intern.append("Final_certi/"+filename+".pdf")
+    intern.append(filename+".pdf")
 
     with open('mail.csv', mode='a') as mailfile:
         writer = csv.writer(mailfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
