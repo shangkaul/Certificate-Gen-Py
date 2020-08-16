@@ -878,9 +878,9 @@ def watermark():
 
 
 
-@app.route('/app')
+@app.route('/')
 def hello():
-    return "Let's Go!"
+    return "<html>Let's Go!<br><ol><li> /upload - To upload files</li><li>/uploader - review certificates</li></ol></html>"
 
 @app.route('/upload')
 def upload_file():
