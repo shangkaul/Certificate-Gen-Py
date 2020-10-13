@@ -9,7 +9,9 @@ from email.mime.multipart import MIMEMultipart
 
 def main():
     interns=[]
-    sender_email = "shangkaul@gmail.com"
+    sender_email = "iwinterns19@gmail.com"
+    password = "juclpjbakmdmvvih"
+    
     with open('mail.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
@@ -50,11 +52,11 @@ def main():
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"/>
 <!--<![endif]-->
 <style type="text/css">
-		body {
-			margin: 0;
-			padding: 0;
-		}
-		a:link {
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        a:link {
   text-decoration: none;
 }
 
@@ -69,100 +71,100 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
-		table,
-		td,
-		tr {
-			vertical-align: top;
-			border-collapse: collapse;
-		}
+        table,
+        td,
+        tr {
+            vertical-align: top;
+            border-collapse: collapse;
+        }
 
-		* {
-			line-height: inherit;
-		}
+        * {
+            line-height: inherit;
+        }
 
-		a[x-apple-data-detectors=true] {
-			color: inherit !important;
-			text-decoration: none !important;
-		}
-	</style>
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+    </style>
 <style id="media-query" type="text/css">
-		@media (max-width: 660px) {
+        @media (max-width: 660px) {
 
-			.block-grid,
-			.col {
-				min-width: 320px !important;
-				max-width: 100% !important;
-				display: block !important;
-			}
+            .block-grid,
+            .col {
+                min-width: 320px !important;
+                max-width: 100% !important;
+                display: block !important;
+            }
 
-			.block-grid {
-				width: 100% !important;
-			}
+            .block-grid {
+                width: 100% !important;
+            }
 
-			.col {
-				width: 100% !important;
-			}
+            .col {
+                width: 100% !important;
+            }
 
-			.col>div {
-				margin: 0 auto;
-			}
+            .col>div {
+                margin: 0 auto;
+            }
 
-			img.fullwidth,
-			img.fullwidthOnMobile {
-				max-width: 100% !important;
-			}
+            img.fullwidth,
+            img.fullwidthOnMobile {
+                max-width: 100% !important;
+            }
 
-			.no-stack .col {
-				min-width: 0 !important;
-				display: table-cell !important;
-			}
+            .no-stack .col {
+                min-width: 0 !important;
+                display: table-cell !important;
+            }
 
-			.no-stack.two-up .col {
-				width: 50% !important;
-			}
+            .no-stack.two-up .col {
+                width: 50% !important;
+            }
 
-			.no-stack .col.num4 {
-				width: 33% !important;
-			}
+            .no-stack .col.num4 {
+                width: 33% !important;
+            }
 
-			.no-stack .col.num8 {
-				width: 66% !important;
-			}
+            .no-stack .col.num8 {
+                width: 66% !important;
+            }
 
-			.no-stack .col.num4 {
-				width: 33% !important;
-			}
+            .no-stack .col.num4 {
+                width: 33% !important;
+            }
 
-			.no-stack .col.num3 {
-				width: 25% !important;
-			}
+            .no-stack .col.num3 {
+                width: 25% !important;
+            }
 
-			.no-stack .col.num6 {
-				width: 50% !important;
-			}
+            .no-stack .col.num6 {
+                width: 50% !important;
+            }
 
-			.no-stack .col.num9 {
-				width: 75% !important;
-			}
+            .no-stack .col.num9 {
+                width: 75% !important;
+            }
 
-			.video-block {
-				max-width: none !important;
-			}
+            .video-block {
+                max-width: none !important;
+            }
 
-			.mobile_hide {
-				min-height: 0px;
-				max-height: 0px;
-				max-width: 0px;
-				display: none;
-				overflow: hidden;
-				font-size: 0px;
-			}
+            .mobile_hide {
+                min-height: 0px;
+                max-height: 0px;
+                max-width: 0px;
+                display: none;
+                overflow: hidden;
+                font-size: 0px;
+            }
 
-			.desktop_hide {
-				display: block !important;
-				max-height: none !important;
-			}
-			a:link {
+            .desktop_hide {
+                display: block !important;
+                max-height: none !important;
+            }
+            a:link {
   text-decoration: none;
 }
 
@@ -177,59 +179,59 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
-		}
+        }
 
-		
-	</style>
+        
+    </style>
 <style id="menu-media-query" type="text/css">
-		@media (max-width: 660px) {
-			.menu-checkbox[type="checkbox"]~.menu-links {
-				display: none !important;
-				padding: 5px 0;
-			}
+        @media (max-width: 660px) {
+            .menu-checkbox[type="checkbox"]~.menu-links {
+                display: none !important;
+                padding: 5px 0;
+            }
 
-			.menu-checkbox[type="checkbox"]~.menu-links span.sep {
-				display: none;
-			}
+            .menu-checkbox[type="checkbox"]~.menu-links span.sep {
+                display: none;
+            }
 
-			.menu-checkbox[type="checkbox"]:checked~.menu-links,
-			.menu-checkbox[type="checkbox"]~.menu-trigger {
-				display: block !important;
-				max-width: none !important;
-				max-height: none !important;
-				font-size: inherit !important;
-			}
+            .menu-checkbox[type="checkbox"]:checked~.menu-links,
+            .menu-checkbox[type="checkbox"]~.menu-trigger {
+                display: block !important;
+                max-width: none !important;
+                max-height: none !important;
+                font-size: inherit !important;
+            }
 
-			.menu-checkbox[type="checkbox"]~.menu-links>a,
-			.menu-checkbox[type="checkbox"]~.menu-links>span.label {
-				display: block !important;
-				text-align: center;
-			}
+            .menu-checkbox[type="checkbox"]~.menu-links>a,
+            .menu-checkbox[type="checkbox"]~.menu-links>span.label {
+                display: block !important;
+                text-align: center;
+            }
 
-			.menu-checkbox[type="checkbox"]:checked~.menu-trigger .menu-close {
-				display: block !important;
-			}
+            .menu-checkbox[type="checkbox"]:checked~.menu-trigger .menu-close {
+                display: block !important;
+            }
 
-			.menu-checkbox[type="checkbox"]:checked~.menu-trigger .menu-open {
-				display: none !important;
-			}
+            .menu-checkbox[type="checkbox"]:checked~.menu-trigger .menu-open {
+                display: none !important;
+            }
 
-			#menudnm8m6~div label {
-				border-radius: 0% !important;
-			}
+            #menudnm8m6~div label {
+                border-radius: 0% !important;
+            }
 
-			#menudnm8m6:checked~.menu-links {
-				background-color: #2e9fdd !important;
-			}
+            #menudnm8m6:checked~.menu-links {
+                background-color: #2e9fdd !important;
+            }
 
-			#menudnm8m6:checked~.menu-links a {
-				color: #ffffff !important;
-			}
+            #menudnm8m6:checked~.menu-links a {
+                color: #ffffff !important;
+            }
 
-			#menudnm8m6:checked~.menu-links span {
-				color: #ffffff !important;
-			}
-			a:link {
+            #menudnm8m6:checked~.menu-links span {
+                color: #ffffff !important;
+            }
+            a:link {
   text-decoration: none;
 }
 
@@ -244,10 +246,10 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
-		}
-	</style>
-	<style>
-		a:link {
+        }
+    </style>
+    <style>
+        a:link {
   text-decoration: none;
 }
 
@@ -262,7 +264,7 @@ a:hover {
 a:active {
   text-decoration: underline;
 }
-	</style>
+    </style>
 </head>
 <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #ffffff;">
 <div style="display: none; max-height: 0px; overflow: hidden;">
@@ -501,10 +503,10 @@ Hi """+row[1]+""",
 <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
 <!--[if (mso)|(IE)]></td><td align="center" width="213" style="background-color:transparent;width:213px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;background-color:#f8f8f8;"><![endif]-->
 <p>
-	Hey """+row[1]+"""!
+    Hey """+row[1]+"""!
 </p>
 <p style="line-height: 1.6;">
-	It was a great experience working with you and we wish you all a great luck for your life ahead and may you achieve all your goals and ambitions. We've enclosed your certificate in this email.
+    It was a great experience working with you and we wish you all a great luck for your life ahead and may you achieve all your goals and ambitions. We've enclosed your certificate in this email.
 
 Team Inception Wave feels grateful to have you as our interns. We seek your support for the future as well. You can follow us on Instagram, Facebook and LinkedIn to show your support!
 </p>
@@ -634,15 +636,25 @@ Team Inception Wave feels grateful to have you as our interns. We seek your supp
 </body>
 </html>
         """
-        part1 = MIMEText(text, "plain")
+       # part1 = MIMEText(text, "plain")
         part2 = MIMEText(html, "html")
-        message.attach(part1)
+        # message.attach(part1)
         message.attach(part2)
+        
 
+        filename=row[6]
+        with open("Final_certi/"+filename, "rb") as attachment:
+            part = MIMEBase("application", "octet-stream")
+            part.set_payload(attachment.read())
+        
+        encoders.encode_base64(part)
+        part.add_header("Content-Disposition",f"attachment; filename= {filename}")
+
+        message.attach(part)
         context = ssl.create_default_context()
         
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-            server.login(sender_email, password)
+            server.login(sender_email,password)
             server.sendmail(sender_email, receiver_email, message.as_string())
 
 
