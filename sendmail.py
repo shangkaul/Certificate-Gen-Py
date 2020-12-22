@@ -10,7 +10,7 @@ from email.mime.multipart import MIMEMultipart
 def main():
     interns=[]
     sender_email = "iwinterns19@gmail.com"
-    password = "juclpjbakmdmvvih"
+    password = "zfsmtcetlikhdfck"
     
     with open('mail.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
